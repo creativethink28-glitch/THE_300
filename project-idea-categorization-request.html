@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>500 Software Project Ideas (Tech-wise) • Full Stack • INR Pricing</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    :root { color-scheme: light; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .table-wrap { overflow-x: auto; }
+    table { border-collapse: separate; border-spacing: 0; }
+    thead th { position: sticky; top: 0; z-index: 10; }
+    .group-header { position: sticky; top: 0; z-index: 20; }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .kbd {
+      border: 1px solid rgb(226 232 240);
+      background: rgb(248 250 252);
+      padding: 0.1rem 0.35rem;
+      border-radius: 0.375rem;
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-6">
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight">500 Software Project Ideas (Full‑Stack) — Tech-wise tables + INR market pricing</h1>
+          <p class="text-sm text-slate-600 mt-1">
+            10 technology tracks × 50 ideas each = <span class="font-medium">500</span> unique project names. Prices are estimates for India (starting <span class="font-medium">₹6,000</span>), sorted low → high.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btnDownloadCsv" class="px-3 py-2 rounded-lg bg-slate-900 text-white text-sm hover:bg-slate-800">Download CSV</button>
+          <button id="btnReset" class="px-3 py-2 rounded-lg bg-white border border-slate-200 text-sm hover:bg-slate-50">Reset</button>
+        </div>
+      </div>
+
+      <div class="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-3">
+        <div class="lg:col-span-4">
+          <label class="text-xs text-slate-600">Search (name / functionality / use case / tech)</label>
+          <input id="q" class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-slate-300" placeholder="e.g., real-time, chatbot, attendance, recommender, WebXR" />
+          <div class="mt-2 text-xs text-slate-500">
+            Tips: press <span class="kbd">Ctrl</span> + <span class="kbd">K</span> to focus search. Click a row for details.
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <label class="text-xs text-slate-600">Technology (track)</label>
+          <select id="tech" class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-200 bg-white"></select>
+        </div>
+
+        <div class="lg:col-span-2">
+          <label class="text-xs text-slate-600">Category</label>
+          <select id="category" class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-200 bg-white"></select>
+        </div>
+
+        <div class="lg:col-span-2">
+          <label class="text-xs text-slate-600">Difficulty</label>
+          <select id="difficulty" class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-200 bg-white"></select>
+        </div>
+
+        <div class="lg:col-span-2">
+          <label class="text-xs text-slate-600">View</label>
+          <select id="viewMode" class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-200 bg-white">
+            <option value="grouped" selected>Grouped by Technology (50 each)</option>
+            <option value="flat">Single Table (all filtered)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-3 grid grid-cols-1 lg:grid-cols-12 gap-3">
+        <div class="lg:col-span-4">
+          <label class="text-xs text-slate-600">Price filter (₹ min / ₹ max)</label>
+          <div class="mt-1 flex items-center gap-2">
+            <input id="priceMin" type="number" min="6000" step="500" class="w-1/2 px-3 py-2 rounded-lg border border-slate-200 bg-white" />
+            <input id="priceMax" type="number" min="6000" step="500" class="w-1/2 px-3 py-2 rounded-lg border border-slate-200 bg-white" />
+          </div>
+        </div>
+        <div class="lg:col-span-4">
+          <label class="text-xs text-slate-600">Realtime requirement</label>
+          <select id="realtime" class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-200 bg-white">
+            <option value="all" selected>All</option>
+            <option value="yes">Realtime Only</option>
+            <option value="no">Non‑Realtime Only</option>
+          </select>
+        </div>
+        <div class="lg:col-span-4">
+          <label class="text-xs text-slate-600">Sort</label>
+          <select id="sort" class="mt-1 w-full px-3 py-2 rounded-lg border border-slate-200 bg-white">
+            <option value="priceAsc" selected>Price (Low → High)</option>
+            <option value="priceDesc">Price (High → Low)</option>
+            <option value="nameAsc">Name (A → Z)</option>
+            <option value="numberAsc">Number (#) Asc</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div class="text-sm text-slate-700">
+          <span class="font-medium" id="count">0</span> projects shown • Price range: <span class="font-medium" id="priceRange">—</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btnExpandAll" class="px-3 py-2 rounded-lg bg-white border border-slate-200 text-sm hover:bg-slate-50">Expand all</button>
+          <button id="btnCollapseAll" class="px-3 py-2 rounded-lg bg-white border border-slate-200 text-sm hover:bg-slate-50">Collapse all</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <aside class="lg:col-span-3">
+        <div class="bg-white border border-slate-200 rounded-xl p-4 sticky top-4">
+          <h2 class="font-semibold">Technology Tracks</h2>
+          <p class="text-xs text-slate-600 mt-1">Each track contains exactly 50 full‑stack ideas (frontend + backend mentioned).</p>
+          <nav id="techNav" class="mt-3 flex flex-col gap-1"></nav>
+          <div class="mt-4 pt-4 border-t border-slate-200">
+            <h3 class="text-sm font-semibold">Legend</h3>
+            <ul class="mt-2 text-xs text-slate-700 space-y-1">
+              <li><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>Realtime = WebSockets / SSE / live tracking</li>
+              <li><span class="inline-block w-2 h-2 rounded-full bg-violet-500 mr-2"></span>AI/ML = integrated model or NLP/CV pipeline</li>
+              <li><span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2"></span>Data = analytics/ETL/data mining</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <section class="lg:col-span-9">
+        <div id="results" class="space-y-6"></div>
+
+        <div class="mt-8 text-xs text-slate-500">
+          Note: market pricing is indicative (varies by city/team/scope). Use these as proposal baselines; add payment gateway, RBAC, audit logs, testing, CI/CD, and hosting for higher tiers.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Details Modal -->
+  <div id="modal" class="fixed inset-0 hidden" aria-hidden="true">
+    <div class="absolute inset-0 bg-black/40" data-close></div>
+    <div class="absolute inset-0 flex items-end sm:items-center justify-center p-4">
+      <div class="w-full max-w-3xl bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+        <div class="p-4 border-b border-slate-200 flex items-start justify-between gap-3">
+          <div>
+            <div class="text-xs text-slate-500" id="modalMeta">—</div>
+            <h3 class="text-lg font-semibold" id="modalTitle">—</h3>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="btnCopy" class="px-3 py-2 rounded-lg bg-slate-900 text-white text-sm hover:bg-slate-800">Copy</button>
+            <button class="px-3 py-2 rounded-lg bg-white border border-slate-200 text-sm hover:bg-slate-50" data-close>Close</button>
+          </div>
+        </div>
+        <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <h4 class="text-sm font-semibold">Technology (Frontend / Backend / DB / AI)</h4>
+            <div class="mt-2 text-sm text-slate-800 whitespace-pre-wrap" id="modalStack">—</div>
+
+            <h4 class="text-sm font-semibold mt-4">Market price (India)</h4>
+            <div class="mt-2 text-sm" id="modalPrice">—</div>
+
+            <h4 class="text-sm font-semibold mt-4">Primary category</h4>
+            <div class="mt-2 text-sm" id="modalCategory">—</div>
+
+            <h4 class="text-sm font-semibold mt-4">Difficulty</h4>
+            <div class="mt-2 text-sm" id="modalDifficulty">—</div>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold">Key functionality</h4>
+            <ul class="mt-2 text-sm list-disc pl-5 space-y-1" id="modalFeatures"></ul>
+
+            <h4 class="text-sm font-semibold mt-4">Real-time use case</h4>
+            <div class="mt-2 text-sm" id="modalRealtime">—</div>
+
+            <h4 class="text-sm font-semibold mt-4">Why this is useful (value)</h4>
+            <div class="mt-2 text-sm text-slate-800" id="modalWhy">—</div>
+          </div>
+        </div>
+        <div class="p-4 border-t border-slate-200 bg-slate-50 text-xs text-slate-600">
+          Pro tip: when submitting as a college/portfolio project, add: API docs (Swagger/OpenAPI), tests, seed data, and a deployment link.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------- Utilities ----------
+    const inr = (n) => new Intl.NumberFormat('en-IN').format(Math.round(n));
+    const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+
+    function toCsv(rows) {
+      const esc = (v) => {
+        const s = (v ?? '').toString();
+        if (/[\n\r,\"]/g.test(s)) return '"' + s.replace(/\"/g, '""') + '"';
+        return s;
+      };
+      return rows.map(r => r.map(esc).join(',')).join('\n');
+    }
+
+    function download(filename, content, mime = 'text/csv;charset=utf-8') {
+      const blob = new Blob([content], { type: mime });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // ---------- Data blueprints ----------
+    const difficultyByIndex = (i) => {
+      if (i < 10) return 'Very Easy';
+      if (i < 25) return 'Easy';
+      if (i < 35) return 'Low';
+      if (i < 45) return 'Medium';
+      return 'Mixed';
+    };
+
+    const webDomains = [
+      { stem: 'College Attendance Tracker', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Local Kirana Inventory & Billing', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Clinic Appointment + Live Queue', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'PG/Hostel Rent & Complaint Portal', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Event Ticketing + QR Entry', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Bus Pass Application & Renewal', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Job Referral Mini‑ATS', category: 'Web Based', realtime: false, ai: true, data: true },
+      { stem: 'NGO Donations + Volunteer Scheduling', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Farmer Market Price Alerts', category: 'Data Mining', realtime: true, ai: true, data: true },
+      { stem: 'Restaurant Table Booking + Waitlist', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Salon Booking & Staff Calendar', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Gym Membership + Workout Plans', category: 'Web Based', realtime: false, ai: true, data: true },
+      { stem: 'Microfinance Loan Repayment Tracker', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Courier Shipment Tracking (live status)', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Flashcards + Spaced Repetition Study App', category: 'Web Based', realtime: false, ai: true, data: true },
+      { stem: 'Mock Interview Scheduler + Feedback', category: 'Web Based', realtime: false, ai: true, data: true },
+      { stem: 'Air/Noise Pollution Reporting Dashboard', category: 'Data Science', realtime: true, ai: false, data: true },
+      { stem: 'Lost & Found Community Portal', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Neighbourhood Noticeboard + Announcements', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Pet Adoption + Foster Requests', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Carpool Matchmaking (routes + chat)', category: 'Web Based', realtime: true, ai: true, data: true },
+      { stem: 'Smart Waste Pickup Scheduling', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Library Circulation (issue/return/fines)', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'School Homework Diary for Parents', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Apartment Maintenance + Vendor Bids', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Water Tanker Booking + Tracking', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Blood Donor Finder + Emergency Broadcast', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Emergency SOS + Live Location Share', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Vehicle Service Reminder + History', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'E‑commerce Price Watch + Alerts', category: 'Data Mining', realtime: true, ai: true, data: true },
+      { stem: 'Travel Itinerary Builder + Share Link', category: 'Web Based', realtime: false, ai: true, data: true },
+      { stem: 'Expense Splitter for Groups', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Invoice Generator + Client Portal', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'GST Billing Lite + Reports', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Field Sales CRM + Geo Check‑ins', category: 'Web Based', realtime: true, ai: true, data: true },
+      { stem: 'Customer Support Chat + Ticketing', category: 'Web Based', realtime: true, ai: true, data: true },
+      { stem: 'Real‑time Quiz + Live Leaderboard', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Online Voting for Clubs (auditable)', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Feedback Kiosk + Analytics', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Product Review Analyzer (NLP)', category: 'Artificial Intelligence', realtime: false, ai: true, data: true },
+      { stem: 'Image‑based Defect Inspection (CV)', category: 'Deep Learning', realtime: false, ai: true, data: true },
+      { stem: 'OCR Receipt Scanner + Expense Auto‑tag', category: 'Machine Learning', realtime: false, ai: true, data: true },
+      { stem: 'Resume Parser + Candidate Ranking', category: 'Artificial Intelligence', realtime: false, ai: true, data: true },
+      { stem: 'Face Attendance with Privacy Controls', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Sentiment Dashboard for Social Posts', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Recommendation Engine (content/products)', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'IoT Anomaly Detection + Alerts', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Stock News Summarizer + Watchlist', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Weather‑based Advisory Notifications', category: 'Data Mining', realtime: true, ai: true, data: true },
+      { stem: 'Road Condition Reporter + Heatmap', category: 'Data Science', realtime: true, ai: false, data: true },
+    ];
+
+    const dsTopics = [
+      { stem: 'Retail Sales Dashboard (EDA + KPIs)', category: 'Data Science', realtime: false, ai: false, data: true },
+      { stem: 'Demand Forecasting for a Small Store', category: 'Data Science', realtime: false, ai: true, data: true },
+      { stem: 'College Placement Analytics Portal', category: 'Data Science', realtime: false, ai: false, data: true },
+      { stem: 'Customer Churn Analysis + Insights', category: 'Data Mining', realtime: false, ai: true, data: true },
+      { stem: 'Marketing Funnel Analytics + Cohorts', category: 'Data Science', realtime: false, ai: false, data: true },
+      { stem: 'Clinic Footfall & Waiting Time Analytics', category: 'Data Science', realtime: true, ai: false, data: true },
+      { stem: 'Credit Risk Scorecard (baseline model)', category: 'Machine Learning', realtime: false, ai: true, data: true },
+      { stem: 'Fraud Pattern Finder (rules + analytics)', category: 'Data Mining', realtime: true, ai: true, data: true },
+      { stem: 'Price Scraper + Trend Dashboard', category: 'Data Mining', realtime: true, ai: false, data: true },
+      { stem: 'Sentiment Trend Tracker (brands/topics)', category: 'Data Science', realtime: true, ai: true, data: true },
+
+      { stem: 'Public Transport On-time Performance', category: 'Data Science', realtime: true, ai: false, data: true },
+      { stem: 'Air Quality Data Pipeline + Alerts', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Electricity Usage Analytics (household)', category: 'Data Science', realtime: false, ai: false, data: true },
+      { stem: 'Smart Meter Anomaly Explorer', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Hospital Readmission Factors Dashboard', category: 'Data Science', realtime: false, ai: true, data: true },
+      { stem: 'Student Performance Early-warning', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'E-commerce Basket Analysis (Apriori)', category: 'Data Mining', realtime: false, ai: false, data: true },
+      { stem: 'HR Attrition Insights + What-if', category: 'Data Science', realtime: false, ai: true, data: true },
+      { stem: 'Inventory ABC/XYZ Classification', category: 'Data Science', realtime: false, ai: false, data: true },
+      { stem: 'Restaurant Menu Engineering Dashboard', category: 'Data Science', realtime: false, ai: false, data: true },
+
+      { stem: 'Geo Heatmap for City Complaints', category: 'Data Science', realtime: true, ai: false, data: true },
+      { stem: 'Traffic Accident Hotspot Discovery', category: 'Data Mining', realtime: false, ai: false, data: true },
+      { stem: 'Crop Yield Analytics + Weather Join', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Real-time Logistics Delay Monitoring', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'News Topic Clustering Dashboard', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Resume Market Skills Dashboard', category: 'Data Science', realtime: false, ai: true, data: true },
+      { stem: 'Expense Categorization Analytics', category: 'Data Science', realtime: false, ai: true, data: true },
+      { stem: 'Bank Statement Parser + Reports', category: 'Data Mining', realtime: false, ai: true, data: true },
+      { stem: 'YouTube Channel Growth Analytics', category: 'Data Science', realtime: true, ai: false, data: true },
+      { stem: 'Call Center KPI Analytics', category: 'Data Science', realtime: true, ai: false, data: true },
+
+      { stem: 'A/B Testing Mini Platform', category: 'Data Science', realtime: true, ai: false, data: true },
+      { stem: 'Survey Analytics + Text Insights', category: 'Data Science', realtime: false, ai: true, data: true },
+      { stem: 'Procurement Spend Analytics', category: 'Data Science', realtime: false, ai: false, data: true },
+      { stem: 'Quality Control Pareto Dashboard', category: 'Data Science', realtime: false, ai: false, data: true },
+      { stem: 'Price Elasticity Explorer', category: 'Data Science', realtime: false, ai: true, data: true },
+      { stem: 'Demand-supply Matching Insights', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Real-time Social Media Crisis Tracker', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Sports Match Stats Dashboard', category: 'Data Science', realtime: true, ai: false, data: true },
+      { stem: 'Portfolio Risk Dashboard (basic VaR)', category: 'Data Science', realtime: false, ai: false, data: true },
+      { stem: 'Fraud Investigation Case Analytics', category: 'Data Mining', realtime: false, ai: true, data: true },
+
+      { stem: 'E-learning Engagement Analytics', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Supply Chain KPI Tower (control room)', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Customer Support Topic Analytics', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Event Feedback Analytics + Themes', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Retail Footfall Heatmap (camera counts)', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Loan Collection Efficiency Analytics', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Energy Load Forecast Dashboard', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Factory Sensor Health Dashboard', category: 'Data Science', realtime: true, ai: true, data: true },
+      { stem: 'Real-time Incident Monitoring Dashboard', category: 'Data Science', realtime: true, ai: false, data: true },
+      { stem: 'Sustainability KPI Dashboard (ESG)', category: 'Data Science', realtime: false, ai: false, data: true },
+    ];
+
+    const mlTopics = [
+      { stem: 'Spam Detector API + Admin Review UI', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'FAQ Chatbot (RAG-lite) for a College', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Resume Screening + Skill Extraction', category: 'Artificial Intelligence', realtime: false, ai: true, data: true },
+      { stem: 'Product Recommendation Microservice', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Image Classifier for Quality Checks', category: 'Deep Learning', realtime: false, ai: true, data: true },
+      { stem: 'Face Mask / PPE Detection (CV)', category: 'Deep Learning', realtime: true, ai: true, data: true },
+      { stem: 'Text Sentiment API + Dashboard', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'OCR + Invoice Field Extraction', category: 'Deep Learning', realtime: false, ai: true, data: true },
+      { stem: 'Fraud Detection (tabular) + Alerts', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Time-series Forecast API (sales/energy)', category: 'Machine Learning', realtime: true, ai: true, data: true },
+
+      { stem: 'Anomaly Detection for IoT Sensors', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Speech-to-Text Notes App (API wrapper)', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Document Similarity Search (embeddings)', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'News Summarizer + Topic Alerts', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Fake Review Detector + Moderation', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Customer Support Ticket Auto-routing', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Disease Risk Predictor (demo) + Explainability', category: 'Machine Learning', realtime: false, ai: true, data: true },
+      { stem: 'Plant Leaf Disease Classifier', category: 'Deep Learning', realtime: false, ai: true, data: true },
+      { stem: 'Road Damage Detection from Images', category: 'Deep Learning', realtime: false, ai: true, data: true },
+      { stem: 'Attendance from ID Card OCR + Validation', category: 'Machine Learning', realtime: true, ai: true, data: true },
+
+      { stem: 'Emotion Classification (text) + Insights', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Personal Finance Categorizer + Budget Coach', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Price Prediction for Used Items', category: 'Machine Learning', realtime: false, ai: true, data: true },
+      { stem: 'Demand-based Dynamic Pricing Simulator', category: 'Artificial Intelligence', realtime: false, ai: true, data: true },
+      { stem: 'Job-Match Scoring Engine', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Plagiarism Checker (semantic) + Reports', category: 'Artificial Intelligence', realtime: false, ai: true, data: true },
+      { stem: 'Smart Email Reply Suggestions (demo)', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Voice Bot for Appointment Booking (demo)', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Defect Segmentation (DL) + QC Dashboard', category: 'Deep Learning', realtime: false, ai: true, data: true },
+      { stem: 'Video Activity Recognition (demo) + Alerts', category: 'Deep Learning', realtime: true, ai: true, data: true },
+
+      { stem: 'Graph-based Fraud Ring Finder (basic)', category: 'Data Mining', realtime: false, ai: true, data: true },
+      { stem: 'Customer Lifetime Value Predictor', category: 'Machine Learning', realtime: false, ai: true, data: true },
+      { stem: 'Inventory Reorder Predictor', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Multi-lingual Text Classifier (demo)', category: 'Deep Learning', realtime: false, ai: true, data: true },
+      { stem: 'RAG Search over PDFs (local business)', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Meeting Minutes Generator (demo)', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Brand Logo Detection (CV) + Brand Safety', category: 'Deep Learning', realtime: false, ai: true, data: true },
+      { stem: 'Handwritten Notes OCR + Search', category: 'Deep Learning', realtime: false, ai: true, data: true },
+      { stem: 'Predictive Maintenance (demo) + Timeline', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Real-time Trend Detection (hashtags)', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+
+      { stem: 'Store Footfall Prediction (demo)', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Smart Recruitment Interview Question Generator', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Safety Compliance Monitoring (PPE) + Alerts', category: 'Deep Learning', realtime: true, ai: true, data: true },
+      { stem: 'Personalized Learning Path Recommender', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Mental Health Journal Insights (demo)', category: 'Artificial Intelligence', realtime: false, ai: true, data: true },
+      { stem: 'Music Mood Classifier (demo)', category: 'Machine Learning', realtime: false, ai: true, data: true },
+      { stem: 'Product Search Relevance Ranker (demo)', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Phishing URL Detector + Browser Helper', category: 'Machine Learning', realtime: true, ai: true, data: true },
+      { stem: 'Chat Moderation + Toxicity Filter', category: 'Artificial Intelligence', realtime: true, ai: true, data: true },
+      { stem: 'Document Redaction Assistant (demo)', category: 'Artificial Intelligence', realtime: false, ai: true, data: true },
+    ];
+
+    const arvrGameTopics = [
+      { stem: 'Browser Endless Runner + Global Leaderboard', category: 'Games', realtime: true, ai: false, data: true },
+      { stem: 'Multiplayer Tic‑Tac‑Toe (WebSockets)', category: 'Games', realtime: true, ai: false, data: true },
+      { stem: 'Realtime Quiz Battle Arena', category: 'Games', realtime: true, ai: false, data: true },
+      { stem: 'Tower Defense (Web) + Level Editor', category: 'Games', realtime: false, ai: true, data: true },
+      { stem: 'Memory Match Game + Skill Analytics', category: 'Games', realtime: false, ai: false, data: true },
+      { stem: '2D Platformer + Cloud Saves', category: 'Games', realtime: false, ai: false, data: true },
+      { stem: 'Chess Puzzle Trainer + Rating', category: 'Games', realtime: false, ai: true, data: true },
+      { stem: 'Snake Battle (real-time) + Spectator Mode', category: 'Games', realtime: true, ai: false, data: true },
+      { stem: 'Word Guess Game + Daily Challenges', category: 'Games', realtime: true, ai: true, data: true },
+      { stem: 'Rhythm Tap Game + Scoreboards', category: 'Games', realtime: false, ai: false, data: true },
+
+      { stem: 'AR Product Preview for Furniture (WebXR)', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+      { stem: 'AR Business Card (3D) + Share Link', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+      { stem: 'AR Museum Guide + Audio Narration', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'AR Navigation Markers for Campus', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'VR Safety Training for Warehouse', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+      { stem: 'VR Fire Drill Simulation + Score', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+      { stem: 'VR Interview Practice Room (speech feedback)', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'AR Try‑On (glasses) demo', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'AR Plant Identifier Overlay (demo)', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'VR Anatomy Explorer (education)', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+
+      { stem: '3D Portfolio World (WebGL) + Analytics', category: 'Web Based', realtime: false, ai: false, data: true },
+      { stem: 'Realtime Collaborative Whiteboard (Canvas)', category: 'Web Based', realtime: true, ai: false, data: true },
+      { stem: 'Typing Speed Game + Live Rankings', category: 'Games', realtime: true, ai: false, data: true },
+      { stem: 'Shooting Gallery (Web) + Powerups', category: 'Games', realtime: false, ai: false, data: true },
+      { stem: 'Puzzle Escape Room + Hint System', category: 'Games', realtime: false, ai: true, data: true },
+      { stem: 'Sudoku Generator + Difficulty Estimator', category: 'Games', realtime: false, ai: true, data: true },
+      { stem: 'Crossword Builder + Sharing', category: 'Games', realtime: false, ai: true, data: true },
+      { stem: 'Realtime Drawing Guess Game', category: 'Games', realtime: true, ai: true, data: true },
+      { stem: 'AR Treasure Hunt (geo + markers)', category: 'AR & VR Projects', realtime: true, ai: false, data: true },
+      { stem: 'VR Meditation Room + Biofeedback (demo)', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+
+      { stem: 'Unity WebGL Mini‑Racing + Leaderboard', category: 'Games', realtime: true, ai: false, data: true },
+      { stem: 'Unity Physics Puzzle + Level Sharing', category: 'Games', realtime: false, ai: true, data: true },
+      { stem: 'Card Game (multiplayer) + Matchmaking', category: 'Games', realtime: true, ai: false, data: true },
+      { stem: 'Realtime Sports Score Prediction Game', category: 'Games', realtime: true, ai: true, data: true },
+      { stem: 'AR Classroom Lab (interactive molecules)', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+      { stem: 'VR Factory Tour + Guided Steps', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+      { stem: 'AR Real Estate Walkthrough (demo)', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'VR Language Learning Room (voice scoring)', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'AR Food Menu (3D) + Order Link', category: 'AR & VR Projects', realtime: true, ai: false, data: true },
+      { stem: 'VR Multiplayer Meet Room (avatars)', category: 'AR & VR Projects', realtime: true, ai: false, data: true },
+
+      { stem: 'Realtime City Builder (turn-based sync)', category: 'Games', realtime: true, ai: true, data: true },
+      { stem: 'Strategy Game with AI Opponent', category: 'Games', realtime: false, ai: true, data: true },
+      { stem: 'AR Fitness Coach (pose demo) + Streaks', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'VR Retail Training Simulator', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+      { stem: 'AR Signboard Translator (demo)', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'VR Emergency Response Simulation', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+      { stem: 'Realtime AR Shared Annotation (multi-user)', category: 'AR & VR Projects', realtime: true, ai: false, data: true },
+      { stem: 'VR Campus Tour + Booking CTA', category: 'AR & VR Projects', realtime: false, ai: false, data: true },
+      { stem: 'AR Barcode Scanner + Smart Inventory', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+      { stem: 'VR Multiplayer Quiz Show', category: 'AR & VR Projects', realtime: true, ai: true, data: true },
+    ];
+
+    // Ensure exact counts (50 each)
+    if (webDomains.length !== 50 || dsTopics.length !== 50 || mlTopics.length !== 50 || arvrGameTopics.length !== 50) {
+      console.warn('Topic arrays must have exactly 50 entries each.');
+    }
+
+    const TECH_TRACKS = [
+      {
+        id: 'vanilla',
+        label: 'HTML/CSS/JS (Vanilla) + Express (Full Stack)',
+        short: 'Vanilla+Express',
+        baseMin: 6000,
+        step: 450,
+        range: 2500,
+        topics: webDomains,
+        stack: (topic) => ({
+          frontend: 'HTML + Tailwind + Vanilla JS',
+          backend: 'Node.js + Express.js (REST API)',
+          db: 'SQLite (or PostgreSQL for hosted)',
+          ai: topic.ai ? 'Optional AI add-on: lightweight NLP/CV via Python microservice' : '—',
+          realtime: topic.realtime ? 'Socket.IO (WebSockets) for live updates' : '—',
+        }),
+      },
+      {
+        id: 'react-express',
+        label: 'React.js + Express.js (MERN-style)',
+        short: 'React+Express',
+        baseMin: 14000,
+        step: 650,
+        range: 6000,
+        topics: webDomains,
+        stack: (topic) => ({
+          frontend: 'React.js + Tailwind',
+          backend: 'Node.js + Express.js (REST) + JWT auth',
+          db: 'MongoDB (or PostgreSQL)',
+          ai: topic.ai ? 'AI/ML integration: Python FastAPI microservice (scikit-learn/transformers)' : '—',
+          realtime: topic.realtime ? 'Socket.IO + notifications' : '—',
+        }),
+      },
+      {
+        id: 'next-express',
+        label: 'Next.js + Express.js (SSR + API)',
+        short: 'Next+Express',
+        baseMin: 16000,
+        step: 700,
+        range: 8000,
+        topics: webDomains,
+        stack: (topic) => ({
+          frontend: 'Next.js (SSR/SSG) + Tailwind',
+          backend: 'Express.js (API) + Redis cache (optional)',
+          db: 'PostgreSQL (Prisma/Knex)',
+          ai: topic.ai ? 'AI/ML: model endpoint via FastAPI + background jobs' : '—',
+          realtime: topic.realtime ? 'SSE/WebSockets for live dashboards' : '—',
+        }),
+      },
+      {
+        id: 'angular-node',
+        label: 'Angular + Node/Express',
+        short: 'Angular+Node',
+        baseMin: 15000,
+        step: 650,
+        range: 8000,
+        topics: webDomains,
+        stack: (topic) => ({
+          frontend: 'Angular + Tailwind (or Angular Material)',
+          backend: 'Node.js + Express.js (REST) + RBAC',
+          db: 'MySQL (or PostgreSQL)',
+          ai: topic.ai ? 'AI/ML: Python service integration + scheduled pipelines' : '—',
+          realtime: topic.realtime ? 'WebSockets for live activity/queues' : '—',
+        }),
+      },
+      {
+        id: 'django-react',
+        label: 'Django + React (DRF)',
+        short: 'Django+React',
+        baseMin: 20000,
+        step: 800,
+        range: 12000,
+        topics: webDomains,
+        stack: (topic) => ({
+          frontend: 'React.js + Tailwind',
+          backend: 'Django + Django REST Framework',
+          db: 'PostgreSQL',
+          ai: topic.ai ? 'AI/ML: Celery tasks + model serving (scikit-learn/torch)' : '—',
+          realtime: topic.realtime ? 'Django Channels (WebSockets)' : '—',
+        }),
+      },
+      {
+        id: 'flask-react',
+        label: 'Flask + React (API-first)',
+        short: 'Flask+React',
+        baseMin: 18000,
+        step: 750,
+        range: 11000,
+        topics: webDomains,
+        stack: (topic) => ({
+          frontend: 'React.js + Tailwind',
+          backend: 'Python Flask (REST API) + JWT',
+          db: 'PostgreSQL (or SQLite for demo)',
+          ai: topic.ai ? 'AI/ML: native Python pipeline inside Flask + model versioning' : '—',
+          realtime: topic.realtime ? 'SSE/WebSockets (Flask-SocketIO)' : '—',
+        }),
+      },
+      {
+        id: 'spring-react',
+        label: 'Spring Boot + React (Enterprise-style)',
+        short: 'Spring+React',
+        baseMin: 24000,
+        step: 950,
+        range: 15000,
+        topics: webDomains,
+        stack: (topic) => ({
+          frontend: 'React.js + Tailwind',
+          backend: 'Java Spring Boot (REST) + Spring Security',
+          db: 'MySQL/PostgreSQL',
+          ai: topic.ai ? 'AI/ML: integrate Python model service; store features + audit logs' : '—',
+          realtime: topic.realtime ? 'WebSockets (Spring) for live updates' : '—',
+        }),
+      },
+      {
+        id: 'data-science',
+        label: 'Data Science (Python) + Dashboard + API',
+        short: 'DataScience',
+        baseMin: 12000,
+        step: 700,
+        range: 9000,
+        topics: dsTopics,
+        stack: (topic) => ({
+          frontend: 'Streamlit (dashboard) or React dashboard',
+          backend: 'FastAPI (data endpoints) + scheduled ETL',
+          db: 'PostgreSQL + CSV/Parquet data lake (small scale)',
+          ai: topic.ai ? 'ML add-on: baseline model + explainability (SHAP) (where relevant)' : '—',
+          realtime: topic.realtime ? 'Streaming updates (polling/SSE) + alert rules' : '—',
+        }),
+      },
+      {
+        id: 'ml-ai',
+        label: 'AI/ML/Deep Learning (Model + API + UI)',
+        short: 'AI/ML',
+        baseMin: 22000,
+        step: 1100,
+        range: 18000,
+        topics: mlTopics,
+        stack: (topic) => ({
+          frontend: 'React.js (admin + user UI) + Tailwind',
+          backend: 'FastAPI (model serving) + background jobs',
+          db: 'PostgreSQL + object storage for artifacts',
+          ai: 'scikit-learn / PyTorch / TensorFlow + metrics + drift monitoring (basic)',
+          realtime: topic.realtime ? 'Realtime inference + WebSockets for alerts' : 'Batch scoring + scheduled retrain (demo)',
+        }),
+      },
+      {
+        id: 'arvr-games',
+        label: 'AR/VR + Games (WebXR/Unity) + Backend',
+        short: 'AR/VR+Games',
+        baseMin: 26000,
+        step: 1200,
+        range: 22000,
+        topics: arvrGameTopics,
+        stack: (topic) => ({
+          frontend: 'Unity (WebGL) or Three.js + WebXR',
+          backend: 'Node.js + Express.js (leaderboards, profiles, telemetry)',
+          db: 'Firebase/Firestore (or PostgreSQL)',
+          ai: topic.ai ? 'AI: NPC logic / speech feedback / CV overlays (demo)' : '—',
+          realtime: topic.realtime ? 'Realtime multiplayer/leaderboards via WebSockets' : 'Async updates + analytics',
+        }),
+      },
+    ];
+
+    const BASE_FEATURES = [
+      'Login/Signup + roles (user/admin)',
+      'CRUD + validation + pagination',
+      'Admin dashboard + analytics (charts)',
+      'Notifications (email/SMS/push stub)',
+      'File uploads (images/docs) + security checks',
+      'Audit logs + activity timeline',
+      'Export data (CSV/PDF) + reports',
+      'Search + filters + sorting',
+      'Responsive UI + accessibility basics',
+      'Deployment checklist (Docker + env vars) (optional)',
+    ];
+
+    function topicSpecificFeatures(topic) {
+      const f = [];
+      const s = topic.stem.toLowerCase();
+      if (s.includes('attendance')) f.push('Attendance capture + leave requests + monthly report');
+      if (s.includes('inventory') || s.includes('billing')) f.push('Stock in/out + low-stock alerts + invoice print');
+      if (s.includes('appointment')) f.push('Slot booking + doctor availability + queue token');
+      if (s.includes('ticket')) f.push('Ticket purchase + QR scan check-in + refund rules');
+      if (s.includes('tracking')) f.push('Status timeline + courier/agent updates + ETA');
+      if (s.includes('chat')) f.push('Realtime chat + ticket threads + SLA timers');
+      if (s.includes('quiz')) f.push('Live rooms + timer + leaderboard updates');
+      if (s.includes('recommendation')) f.push('Personalized feed + implicit feedback + A/B toggle');
+      if (s.includes('ocr')) f.push('Image upload + OCR extraction + manual correction UI');
+      if (s.includes('defect') || s.includes('inspection')) f.push('Upload/stream images + defect highlighting + review workflow');
+      if (s.includes('sentiment')) f.push('Ingest posts + sentiment scoring + trend charts');
+      if (s.includes('anomaly')) f.push('Streaming sensor ingest + anomaly alerts + threshold tuning');
+      if (s.includes('ar ') || s.includes('vr ') || topic.category.includes('AR')) f.push('Device compatibility checks + performance optimizations');
+      if (topic.ai) f.push('AI feature: baseline model + evaluation metrics');
+      if (topic.realtime) f.push('Realtime feature: live updates (WebSockets/SSE)');
+      return f.slice(0, 5);
+    }
+
+    function makeWhy(topic) {
+      const parts = [];
+      if (topic.category === 'Web Based') parts.push('Common client demand for automation + admin dashboards.');
+      if (topic.category === 'Data Science' || topic.category === 'Data Mining') parts.push('Turns raw data into decisions through KPIs, trends and alerts.');
+      if (topic.ai) parts.push('Adds AI capability (classification/recommendation/NLP/CV) which increases market value.');
+      if (topic.realtime) parts.push('Realtime UX (queues, alerts, live boards) improves user retention and pricing.');
+      parts.push('Good for portfolio: demonstrates full-stack + deployment + documentation.');
+      return parts.join(' ');
+    }
+
+    function makeUseCase(topic) {
+      const base = topic.category.includes('AR') ? 'Used in training/visualization and interactive experiences.' : 'Used by real users to manage day-to-day operations.';
+      const rt = topic.realtime ? ' Includes live updates for timely actions.' : ' Focuses on reliable workflows and reporting.';
+      return base + rt;
+    }
+
+    function makeProject(track, topic, i) {
+      const priceMin = track.baseMin + i * track.step;
+      const priceMax = priceMin + track.range;
+
+      const stackObj = track.stack(topic);
+      const features = [
+        ...topicSpecificFeatures(topic),
+        BASE_FEATURES[(i + 1) % BASE_FEATURES.length],
+        BASE_FEATURES[(i + 3) % BASE_FEATURES.length],
+      ];
+
+      const aiBadge = topic.ai;
+      const dataBadge = topic.data;
+      const rtBadge = topic.realtime;
+
+      return {
+        techId: track.id,
+        techLabel: track.label,
+        techShort: track.short,
+        name: `${track.short}: ${topic.stem}`,
+        category: topic.category,
+        difficulty: difficultyByIndex(i),
+        realtime: !!topic.realtime,
+        ai: !!topic.ai,
+        data: !!topic.data,
+        stack: stackObj,
+        features: [...new Set(features)].slice(0, 7),
+        useCase: makeUseCase(topic),
+        why: makeWhy(topic),
+        priceMin,
+        priceMax,
+        badges: { ai: aiBadge, data: dataBadge, rt: rtBadge },
+      };
+    }
+
+    function generateAllProjects() {
+      const projects = [];
+      for (const track of TECH_TRACKS) {
+        for (let i = 0; i < 50; i++) {
+          const topic = track.topics[i];
+          projects.push(makeProject(track, topic, i));
+        }
+      }
+
+      // Assign stable numbering sorted by (track baseMin) then by priceMin (already), then name.
+      // But also ensure global price order is low->high by sorting once and then locking `no`.
+      projects.sort((a, b) => (a.priceMin - b.priceMin) || a.name.localeCompare(b.name));
+      projects.forEach((p, idx) => p.no = idx + 1);
+
+      return projects;
+    }
+
+    const ALL = generateAllProjects();
+
+    // ---------- UI state ----------
+    const state = {
+      q: '',
+      tech: 'all',
+      category: 'all',
+      difficulty: 'all',
+      realtime: 'all',
+      priceMin: 6000,
+      priceMax: Math.max(...ALL.map(p => p.priceMax)),
+      viewMode: 'grouped',
+      sort: 'priceAsc',
+      collapsed: new Set(),
+      selected: null,
+    };
+
+    // ---------- Populate filters ----------
+    const el = (id) => document.getElementById(id);
+
+    function uniq(arr) { return [...new Set(arr)].sort((a,b)=>a.localeCompare(b)); }
+
+    function initSelectors() {
+      const techSel = el('tech');
+      techSel.innerHTML = ['<option value="all">All technologies</option>']
+        .concat(TECH_TRACKS.map(t => `<option value="${t.id}">${t.label}</option>`))
+        .join('');
+
+      const cats = uniq(ALL.map(p => p.category));
+      const catSel = el('category');
+      catSel.innerHTML = ['<option value="all">All categories</option>']
+        .concat(cats.map(c => `<option value="${c}">${c}</option>`))
+        .join('');
+
+      const diffs = ['Very Easy','Easy','Low','Medium','Mixed'];
+      const diffSel = el('difficulty');
+      diffSel.innerHTML = ['<option value="all">All difficulty</option>']
+        .concat(diffs.map(d => `<option value="${d}">${d}</option>`))
+        .join('');
+
+      el('priceMin').value = state.priceMin;
+      el('priceMax').value = state.priceMax;
+
+      // Tech nav
+      const nav = el('techNav');
+      nav.innerHTML = TECH_TRACKS.map(t => `
+        <a href="#track-${t.id}" class="px-2 py-1.5 rounded-lg hover:bg-slate-50 text-sm flex items-center justify-between gap-2">
+          <span class="line-clamp-2">${t.label}</span>
+          <span class="text-xs text-slate-500">50</span>
+        </a>
+      `).join('');
+    }
+
+    // ---------- Filtering & sorting ----------
+    function matchesText(p, q) {
+      if (!q) return true;
+      const hay = [
+        p.no,
+        p.name,
+        p.category,
+        p.difficulty,
+        p.techLabel,
+        p.stack.frontend,
+        p.stack.backend,
+        p.stack.db,
+        p.stack.ai,
+        p.stack.realtime,
+        p.features.join(' '),
+        p.useCase,
+        p.why,
+      ].join(' ').toLowerCase();
+      return hay.includes(q.toLowerCase());
+    }
+
+    function applyFilters() {
+      const q = state.q.trim();
+      const min = clamp(Number(state.priceMin || 6000), 6000, 10_00_00_000);
+      const max = clamp(Number(state.priceMax || state.priceMax), 6000, 10_00_00_000);
+
+      let rows = ALL.filter(p => {
+        if (state.tech !== 'all' && p.techId !== state.tech) return false;
+        if (state.category !== 'all' && p.category !== state.category) return false;
+        if (state.difficulty !== 'all' && p.difficulty !== state.difficulty) return false;
+        if (state.realtime === 'yes' && !p.realtime) return false;
+        if (state.realtime === 'no' && p.realtime) return false;
+        if (p.priceMax < min || p.priceMin > max) return false;
+        if (!matchesText(p, q)) return false;
+        return true;
+      });
+
+      switch (state.sort) {
+        case 'priceAsc': rows.sort((a, b) => (a.priceMin - b.priceMin) || (a.no - b.no)); break;
+        case 'priceDesc': rows.sort((a, b) => (b.priceMin - a.priceMin) || (a.no - b.no)); break;
+        case 'nameAsc': rows.sort((a, b) => a.name.localeCompare(b.name)); break;
+        case 'numberAsc': rows.sort((a, b) => a.no - b.no); break;
+      }
+
+      return rows;
+    }
+
+    // ---------- Rendering ----------
+    function badgeDot(color) {
+      return `<span class="inline-block w-2 h-2 rounded-full ${color} mr-1.5" aria-hidden="true"></span>`;
+    }
+
+    function badgesHTML(p) {
+      const chips = [];
+      if (p.badges.rt) chips.push(`<span class="inline-flex items-center px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs">${badgeDot('bg-emerald-500')}Realtime</span>`);
+      if (p.badges.ai) chips.push(`<span class="inline-flex items-center px-2 py-1 rounded-full bg-violet-50 text-violet-700 border border-violet-200 text-xs">${badgeDot('bg-violet-500')}AI/ML</span>`);
+      if (p.badges.data) chips.push(`<span class="inline-flex items-center px-2 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs">${badgeDot('bg-amber-500')}Data</span>`);
+      return chips.join(' ');
+    }
+
+    function stackCompact(p) {
+      const aiLine = (p.stack.ai && p.stack.ai !== '—') ? `\nAI: ${p.stack.ai}` : '';
+      const rtLine = (p.stack.realtime && p.stack.realtime !== '—') ? `\nRealtime: ${p.stack.realtime}` : '';
+      return `FE: ${p.stack.frontend}\nBE: ${p.stack.backend}\nDB: ${p.stack.db}${aiLine}${rtLine}`;
+    }
+
+    function priceCell(p) {
+      return `<div class="font-medium">₹${inr(p.priceMin)}–₹${inr(p.priceMax)}</div><div class="text-xs text-slate-500">min ₹${inr(p.priceMin)}</div>`;
+    }
+
+    function rowHTML(p) {
+      const func = p.features.slice(0, 3).map(x => `<li class="line-clamp-2">${x}</li>`).join('');
+      const uc = `<div class="text-xs text-slate-600 line-clamp-2">${p.useCase}</div><div class="text-xs text-slate-600 line-clamp-2 mt-1"><span class="text-slate-500">Why:</span> ${p.why}</div>`;
+
+      return `
+        <tr class="hover:bg-slate-50 cursor-pointer" data-row="${p.no}">
+          <td class="px-3 py-3 align-top text-xs text-slate-500">#${p.no}</td>
+          <td class="px-3 py-3 align-top">
+            <div class="font-semibold leading-snug">${p.name}</div>
+            <div class="mt-1 flex flex-wrap gap-1.5">${badgesHTML(p)}</div>
+          </td>
+          <td class="px-3 py-3 align-top text-sm">
+            <div class="text-xs text-slate-600">${p.category}</div>
+            <div class="mt-1 text-xs text-slate-500">Difficulty: <span class="text-slate-700">${p.difficulty}</span></div>
+          </td>
+          <td class="px-3 py-3 align-top">
+            <pre class="text-xs bg-slate-50 border border-slate-200 rounded-lg p-2 whitespace-pre-wrap">${stackCompact(p)}</pre>
+          </td>
+          <td class="px-3 py-3 align-top text-xs">
+            <ul class="list-disc pl-4 space-y-1">${func}</ul>
+            <div class="mt-2">
+              <button class="text-xs px-2 py-1 rounded-md bg-white border border-slate-200 hover:bg-slate-50" data-view="${p.no}">View details</button>
+            </div>
+          </td>
+          <td class="px-3 py-3 align-top">${uc}</td>
+          <td class="px-3 py-3 align-top text-sm">${priceCell(p)}</td>
+        </tr>
+      `;
+    }
+
+    function tableHTML(rows, title, subtitle, anchorId, collapsed = false) {
+      const id = anchorId || '';
+      const content = rows.length
+        ? `
+        <div class="table-wrap">
+          <table class="min-w-[1100px] w-full bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <thead class="bg-slate-100 border-b border-slate-200">
+              <tr>
+                <th class="px-3 py-3 text-left text-xs font-semibold text-slate-700">#</th>
+                <th class="px-3 py-3 text-left text-xs font-semibold text-slate-700">Project (unique name)</th>
+                <th class="px-3 py-3 text-left text-xs font-semibold text-slate-700">Category & Difficulty</th>
+                <th class="px-3 py-3 text-left text-xs font-semibold text-slate-700">Frontend / Backend / DB / AI</th>
+                <th class="px-3 py-3 text-left text-xs font-semibold text-slate-700">Functionality</th>
+                <th class="px-3 py-3 text-left text-xs font-semibold text-slate-700">Real use case + Why</th>
+                <th class="px-3 py-3 text-left text-xs font-semibold text-slate-700">Market price (₹)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              ${rows.map(rowHTML).join('')}
+            </tbody>
+          </table>
+        </div>
+      `
+        : `<div class="text-sm text-slate-600 bg-white border border-slate-200 rounded-xl p-4">No projects match filters in this section.</div>`;
+
+      return `
+        <section id="${id}" class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <div class="px-4 py-4 bg-white border-b border-slate-200 flex items-start justify-between gap-3">
+            <div>
+              <h3 class="font-semibold">${title}</h3>
+              <div class="text-xs text-slate-600 mt-1">${subtitle}</div>
+            </div>
+            <button class="px-3 py-2 rounded-lg text-sm bg-white border border-slate-200 hover:bg-slate-50" data-toggle="${id}">
+              ${collapsed ? 'Expand' : 'Collapse'}
+            </button>
+          </div>
+          <div class="p-4 ${collapsed ? 'hidden' : ''}" data-section="${id}">
+            ${content}
+          </div>
+        </section>
+      `;
+    }
+
+    function computeRange(rows) {
+      if (!rows.length) return '—';
+      const mn = Math.min(...rows.map(r => r.priceMin));
+      const mx = Math.max(...rows.map(r => r.priceMax));
+      return `₹${inr(mn)}–₹${inr(mx)}`;
+    }
+
+    function render() {
+      const rows = applyFilters();
+      el('count').textContent = rows.length;
+      el('priceRange').textContent = computeRange(rows);
+
+      const container = el('results');
+
+      if (state.viewMode === 'flat') {
+        container.innerHTML = tableHTML(
+          rows,
+          'All filtered projects (single table)',
+          `Showing ${rows.length} results • Sorted: ${el('sort').selectedOptions[0]?.textContent || ''}`,
+          'flat',
+          false
+        );
+        return;
+      }
+
+      // Grouped view: technology-wise sections. Each track still has its own 50 projects in base dataset,
+      // but filters may reduce counts.
+      const byTech = new Map();
+      for (const t of TECH_TRACKS) byTech.set(t.id, []);
+      for (const p of rows) byTech.get(p.techId).push(p);
+
+      // Sort sections by their original baseMin so price naturally rises.
+      const sections = TECH_TRACKS.map(t => {
+        const list = byTech.get(t.id) || [];
+        const sub = `${list.length} shown (out of 50) • Price span: ${computeRange(list)} • Category mix: ${uniq(list.map(x => x.category)).slice(0, 5).join(', ')}${uniq(list.map(x => x.category)).length > 5 ? '…' : ''}`;
+        const collapsed = state.collapsed.has(t.id);
+        return tableHTML(list, `${t.label} (50 ideas)`, sub, `track-${t.id}`, collapsed);
+      });
+
+      container.innerHTML = sections.join('');
+    }
+
+    // ---------- Modal ----------
+    function openModal(p) {
+      state.selected = p;
+      el('modalMeta').textContent = `#${p.no} • ${p.techLabel} • ${p.category}`;
+      el('modalTitle').textContent = p.name;
+      el('modalStack').textContent = stackCompact(p);
+      el('modalPrice').innerHTML = `<div class="text-sm font-semibold">₹${inr(p.priceMin)}–₹${inr(p.priceMax)}</div><div class="text-xs text-slate-600">(Estimate: typical freelance/agency pricing in India for this scope)</div>`;
+      el('modalCategory').textContent = p.category;
+      el('modalDifficulty').textContent = p.difficulty;
+      el('modalFeatures').innerHTML = p.features.map(x => `<li>${x}</li>`).join('');
+      el('modalRealtime').innerHTML = p.realtime
+        ? `<span class="inline-flex items-center px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs">Realtime enabled</span>
+           <div class="mt-2 text-sm text-slate-700">Use case: live queues / live leaderboards / live tracking / instant alerts.</div>`
+        : `<span class="inline-flex items-center px-2 py-1 rounded-full bg-slate-50 text-slate-700 border border-slate-200 text-xs">Non‑realtime</span>
+           <div class="mt-2 text-sm text-slate-700">Use case: reliable workflows, reports, scheduled jobs.</div>`;
+      el('modalWhy').textContent = p.why;
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('modal').setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+      document.getElementById('modal').setAttribute('aria-hidden', 'true');
+      state.selected = null;
+    }
+
+    function copySelected() {
+      const p = state.selected;
+      if (!p) return;
+      const text = [
+        `#${p.no} — ${p.name}`,
+        `Category: ${p.category} | Difficulty: ${p.difficulty}`,
+        `Price: ₹${inr(p.priceMin)}–₹${inr(p.priceMax)}`,
+        `Stack:`,
+        `  Frontend: ${p.stack.frontend}`,
+        `  Backend:  ${p.stack.backend}`,
+        `  DB/Data:  ${p.stack.db}`,
+        `  AI/ML:    ${p.stack.ai}`,
+        `  Realtime: ${p.stack.realtime}`,
+        `Functionality:`,
+        ...p.features.map(f => `  - ${f}`),
+        `Use case: ${p.useCase}`,
+        `Why: ${p.why}`,
+      ].join('\n');
+
+      navigator.clipboard.writeText(text).catch(() => {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      });
+    }
+
+    // ---------- Events ----------
+    function bindEvents() {
+      el('q').addEventListener('input', (e) => { state.q = e.target.value; render(); });
+      el('tech').addEventListener('change', (e) => { state.tech = e.target.value; render(); });
+      el('category').addEventListener('change', (e) => { state.category = e.target.value; render(); });
+      el('difficulty').addEventListener('change', (e) => { state.difficulty = e.target.value; render(); });
+      el('realtime').addEventListener('change', (e) => { state.realtime = e.target.value; render(); });
+      el('sort').addEventListener('change', (e) => { state.sort = e.target.value; render(); });
+      el('viewMode').addEventListener('change', (e) => { state.viewMode = e.target.value; render(); });
+
+      el('priceMin').addEventListener('input', (e) => { state.priceMin = e.target.value; render(); });
+      el('priceMax').addEventListener('input', (e) => { state.priceMax = e.target.value; render(); });
+
+      el('btnReset').addEventListener('click', () => {
+        state.q = '';
+        state.tech = 'all';
+        state.category = 'all';
+        state.difficulty = 'all';
+        state.realtime = 'all';
+        state.sort = 'priceAsc';
+        state.viewMode = 'grouped';
+        state.priceMin = 6000;
+        state.priceMax = Math.max(...ALL.map(p => p.priceMax));
+        state.collapsed = new Set();
+        el('q').value = '';
+        el('tech').value = 'all';
+        el('category').value = 'all';
+        el('difficulty').value = 'all';
+        el('realtime').value = 'all';
+        el('sort').value = 'priceAsc';
+        el('viewMode').value = 'grouped';
+        el('priceMin').value = state.priceMin;
+        el('priceMax').value = state.priceMax;
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      el('btnExpandAll').addEventListener('click', () => {
+        state.collapsed = new Set();
+        render();
+      });
+
+      el('btnCollapseAll').addEventListener('click', () => {
+        state.collapsed = new Set(TECH_TRACKS.map(t => t.id));
+        render();
+      });
+
+      el('btnDownloadCsv').addEventListener('click', () => {
+        const rows = applyFilters();
+        const header = [
+          'No', 'Project Name', 'Technology Track', 'Category', 'Difficulty',
+          'Realtime', 'AI/ML', 'Data/Mining',
+          'Frontend', 'Backend', 'DB/Data', 'AI Stack', 'Realtime Stack',
+          'Functionality (bullets)', 'Use Case', 'Why',
+          'Price Min (INR)', 'Price Max (INR)'
+        ];
+        const csvRows = [header].concat(rows.map(p => [
+          p.no,
+          p.name,
+          p.techLabel,
+          p.category,
+          p.difficulty,
+          p.realtime ? 'Yes' : 'No',
+          p.ai ? 'Yes' : 'No',
+          p.data ? 'Yes' : 'No',
+          p.stack.frontend,
+          p.stack.backend,
+          p.stack.db,
+          p.stack.ai,
+          p.stack.realtime,
+          p.features.join(' | '),
+          p.useCase,
+          p.why,
+          p.priceMin,
+          p.priceMax,
+        ]));
+
+        download('500-project-ideas-filtered.csv', toCsv(csvRows));
+      });
+
+      // Modal close
+      document.getElementById('modal').addEventListener('click', (e) => {
+        if (e.target.matches('[data-close]')) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          el('q').focus();
+        }
+        if (e.key === 'Escape') closeModal();
+      });
+      el('btnCopy').addEventListener('click', copySelected);
+
+      // Table events (delegation)
+      document.addEventListener('click', (e) => {
+        const toggle = e.target.closest('[data-toggle]');
+        if (toggle) {
+          const id = toggle.getAttribute('data-toggle')?.replace('track-', '') || '';
+          if (!id) return;
+          if (state.collapsed.has(id)) state.collapsed.delete(id);
+          else state.collapsed.add(id);
+          render();
+          return;
+        }
+
+        const viewBtn = e.target.closest('[data-view]');
+        if (viewBtn) {
+          const no = Number(viewBtn.getAttribute('data-view'));
+          const p = ALL.find(x => x.no === no);
+          if (p) openModal(p);
+          return;
+        }
+
+        const row = e.target.closest('tr[data-row]');
+        if (row) {
+          const no = Number(row.getAttribute('data-row'));
+          const p = ALL.find(x => x.no === no);
+          if (p) openModal(p);
+        }
+      });
+    }
+
+    // ---------- Init ----------
+    initSelectors();
+    bindEvents();
+    render();
+  </script>
+</body>
+</html>
